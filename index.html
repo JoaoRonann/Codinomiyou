@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Codinomiyou</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #0b0b0b, #1a1a1a);
+    color: #FFD700;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Container responsivo */
+.container {
+    max-width: 1400px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 10px;
+    border-radius: 12px;
+}
+
+
+/* Logo */
+.logo {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: linear-gradient(90deg, #FFD700, #FFA500);
+    border: 2px solid #FFA500;
+    overflow: hidden;
+    margin: 20px auto 15px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Brand name */
+.brand-name {
+    background: linear-gradient(90deg, #FFD700, #FFA500);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: clamp(30px, 2vw, 20px);
+    text-align: center;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+/* Bios */
+.bios {
+    background: linear-gradient(90deg, #FFD700, #FFA500);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: clamp(15px, 2vw, 20px);
+    text-align: center;
+    margin-bottom: 2px;
+    font-weight: bold;
+}
+
+/* Ícones sociais */
+.social-icons {
+    background: linear-gradient(90deg, #FFD700, #FFA500);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 20px;
+}
+.social-icons a {
+    color: #FFD700;
+    font-size: clamp(20px, 2.5vw, 28px);
+    text-decoration: none;
+}
+
+/* Botões de ação */
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+.action-btn {
+    background-color: #1E1E1E;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: clamp(14px, 1.5vw, 16px);
+}
+
+/* Cards de produto */
+.product-card {
+    background: rgba(0, 0, 0, 0.45);
+    border-radius: 12px;
+    border: 2px solid #FFD700;
+    box-shadow: 0 4px 10px rgba(255, 215, 0, 0.1);
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+.product-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.35);
+    border-color: #ffef99;
+}
+
+/* Imagens de produto */
+.product-image {
+    width: 100%;
+    height: 180px;
+    border-radius: 10px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+/* Nome e preço do produto */
+.product-name {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 5px 0;
+}
+.product-price {
+    font-size: 0.9rem;
+    color: #ffef99;
+    margin: 5px 0;
+}
+.product-content {
+    text-align: center;
+}
+
+/* Link do produto */
+.product-link {
+   background-color:#FFD700; 
+    color:#121212; 
+    border:none;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    padding:15px 10px;
+    width: 100%;
+    border-radius:8px; 
+    cursor:pointer; 
+    font-weight:bold; 
+    transition: transform 0.3s;
+    margin-bottom: 5px;
+    box-sizing: border-box;
+}
+.product-link:hover {
+    background-color: #FFD700;
+    color: #000;
+    transform: scale(1.05);
+}
+
+
+
+/* Toast de copiado */
+
+
+/* Seletor de cores */
+.color-options {
+    display: flex;
+    gap: 8px;
+    margin: 10px 0;
+    justify-content: center;
+}
+.color-circle {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    border: 2px solid #ddd;
+    transition: transform 0.2s;
+}
+.color-circle:hover {
+    transform: scale(1.1);
+    border-color: #FFD700;
+}
+.color-circle.hot::after,
+.color-circle.new::after {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    font-size: 10px;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-weight: bold;
+    color: white;
+}
+.color-circle.hot::after {
+    content: "HOT";
+    background: #ff4d4d;
+}
+.color-circle.new::after {
+    content: "NEW";
+    background: #00c853;
+}
+
+/* Responsividade para celulares */
+@media (max-width: 50px) {
+    .container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1px;
+    }
+
+    .product-card {
+        padding: 1px;
+        aspect-ratio: 3 / 4;
+    }
+
+    .product-image {
+        aspect-ratio: 3 / 4;
+        border-radius: 8px;
+    }
+}
+
+/* Ajuste fino para telas muito pequenas */
+@media (max-width: 10px) {
+    .container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1px;
+    }
+
+    .product-card {
+        padding: 1px;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="logo">
+        <img src="https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/fd857903701cbbb1cd6750ef2e882ac3~tplv-tiktokx-cropcenter:1080:1080.jpeg?dr=14579&refresh_token=972620e5&x-expires=1759600800&x-signature=Tj1vJesNgLfVesMHMDQ74GE8SZM%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=maliva" alt="Logo da Marca">
+    </div>
+    <div class="brand-name">Codinomiyou</div>
+    <p class="bios">O melhor recomendado de moda geek, sejá o mais estiloso com seus personagem preferido, sempre com você!</p>
+
+    <div class="social-icons">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@codinomiyou?_t=ZM-90DhMQ1vO2d&_r=1"><i class="fab fa-tiktok"></i></a>
+        <a href="#"><i class="fab fa-pinterest"></i></a>
+    </div>
+
+    <div class="action-buttons">
+        <button class="action-btn"><i class="fas fa-share"></i> Compartilhar</button>
+    </div>
+
+    <!-- Card 1 -->
+    <div class="product-card">
+        <img id="moletom-img" src="https://http2.mlstatic.com/D_NQ_NP_946204-MLB93309466147_092025-O-moletom-canguru-top-anime-one-piece-luffy-vegapunk-ref-304.webp" alt="Moletom One piece" class="product-image">
+        <h3 class="product-name">Moletom Canguru Top Anime One Piece Luffy Vegapunk</h3>
+        
+        <div class="color-options">                    
+            <div class="color-circle" style="background:#000000;" onclick="trocarMoletomImg(0)"></div>
+            <div class="color-circle" style="background:#ffffff;" onclick="trocarMoletomImg(1)"></div>
+            <div class="color-circle" style="background:#f6fcc4;" onclick="trocarMoletomImg(2)"></div>
+        </div>
+        <a href="https://mercadolivre.com/sec/2pL3j4a" class="product-link"><i class="fas fa-shopping-bag"></i> Ver Produto</a>
+        
+    
+    </div>
+
+    <!-- Card 2 -->
+    <div class="product-card">
+        <img id="camiseta-img" src="https://via.placeholder.com/480x640/333/FFD700?text=Camiseta" alt="Camiseta Básica" class="product-image">
+        <div class="product-name">Camiseta Básica Premium</div>
+        
+        <div class="color-options">
+            <div class="color-circle hot" style="background:#000;" onclick="trocarCamisetaImg(0)"></div>
+            <div class="color-circle new" style="background:#fff;" onclick="trocarCamisetaImg(1)"></div>
+            <div class="color-circle" style="background:#1e90ff;" onclick="trocarCamisetaImg(2)"></div>
+        </div>
+
+        <div class="product-price">R$ 89,90</div>
+        <a href="#" class="product-link"><i class="fas fa-shopping-bag"></i> Ver Produto</a>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="product-card">
+        <img id="calca-img" src="https://via.placeholder.com/480x640/333/FFD700?text=Calça" alt="Calça Cargo" class="product-image">
+        <div class="product-name">Calça Cargo Preta</div>
+
+        <div class="color-options">
+            <div class="color-circle hot" style="background:#000;" onclick="trocarCalcaImg(0)"></div>
+            <div class="color-circle" style="background:#708090;" onclick="trocarCalcaImg(1)"></div>
+            <div class="color-circle new" style="background:#2e8b57;" onclick="trocarCalcaImg(2)"></div>
+        </div>
+
+        <div class="product-price">R$ 159,90</div>
+        <a href="#" class="product-link"><i class="fas fa-shopping-bag"></i> Ver Produto</a>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="product-card">
+        <img id="tenis-img" src="https://via.placeholder.com/480x640/333/FFD700?text=Tênis" alt="Tênis Casual" class="product-image">
+        <div class="product-name">Tênis Casual Urban</div>
+
+        <div class="color-options">
+            <div class="color-circle hot" style="background:#fff;" onclick="trocarTenisImg(0)"></div>
+            <div class="color-circle new" style="background:#000;" onclick="trocarTenisImg(1)"></div>
+            <div class="color-circle" style="background:#4682b4;" onclick="trocarTenisImg(2)"></div>
+        </div>
+
+        <div class="product-price">R$ 249,90</div>
+        <a href="#" class="product-link"><i class="fas fa-shopping-bag"></i> Ver Produto</a>
+    </div>
+
+</div>
+
+<script>
+
+const moletomImgs = [
+    "https://http2.mlstatic.com/D_NQ_NP_946204-MLB93309466147_092025-O-moletom-canguru-top-anime-one-piece-luffy-vegapunk-ref-304.webp",
+    "https://http2.mlstatic.com/D_NQ_NP_901391-MLB93309496005_092025-O-moletom-canguru-top-anime-one-piece-luffy-vegapunk-ref-304.webp",
+    "https://http2.mlstatic.com/D_NQ_NP_709780-MLB93308910829_092025-O-moletom-canguru-top-anime-one-piece-luffy-vegapunk-ref-304.webp"
+];
+let moletomIndex = 0;
+let moletomInterval;
+let moletomTimeout;
+function trocarMoletomImg(i) {
+    clearInterval(moletomInterval);
+    clearTimeout(moletomTimeout);
+    moletomIndex = i;
+    document.getElementById('moletom-img').src = moletomImgs[moletomIndex];
+    moletomTimeout = setTimeout(iniciarMoletomSlide, 5000);
+}
+function iniciarMoletomSlide() {
+    moletomInterval = setInterval(() => {
+        moletomIndex = (moletomIndex + 1) % moletomImgs.length;
+        document.getElementById('moletom-img').src = moletomImgs[moletomIndex];
+    }, 5000);
+}
+window.addEventListener("load", iniciarMoletomSlide);
+</script>
+</body>
+</html>
