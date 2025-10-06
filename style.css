@@ -1,0 +1,286 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #0b0b0b, #1a1a1a);
+    color: #FFD700;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Container responsivo */
+.container {
+    max-width: 1400px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 10px;
+    border-radius: 12px;
+}
+
+
+/* Logo */
+.logo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: linear-gradient(90deg, #fffef8, #FFA500);
+    border: 2px solid #fff0d4;
+    overflow: hidden;
+    margin: 20px auto 15px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Brand name */
+.brand-name {
+    background: linear-gradient(90deg, #fffadc, #FFA500);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: clamp(30px, 2vw, 20px);
+    text-align: center;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+/* Bios */
+.bios {
+    background: linear-gradient(10deg, #eeeeee, #ffd586);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: clamp(15px, 2vw, 3 30px);
+    text-align: center;
+    margin-bottom: 2px;
+    font-weight: bold;
+}
+
+/* Ícones sociais */
+.social-icons {
+    background: linear-gradient(0deg, #eeeeee, #FFA500);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+.social-icons-unit {
+    background: linear-gradient(0deg, #eeeeee, #FFA500);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-decoration: none;
+    transition: transform 0.2s;
+    padding: 8px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(20px, 2.5vw, 30px);
+}
+.social-icons-unit:hover {
+    transform: scale(1.1);
+    border-color: #FFD700;
+}
+
+/* Botões de ação */
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+.action-btn {
+    background-color: #1E1E1E;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    display: inline-flexbox;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 5px;
+    font-size: clamp(14px, 1.5vw, 16px);
+	
+}
+.categoria{
+    text-align: center;
+    color: #fff;
+    font-size: 1.5rem;
+    margin: 20px 0 10px 0;
+    font-weight: bold;
+    width: 100%;
+    }
+.divisor{
+         border: none;
+  /* Adiciona a borda superior para simular a linha */
+  border-top: 1px solid #ccc;
+  /* Remove margens padrão e garante a largura total */
+  margin: 20px 0;
+  /* Truque para quebrar a limitação de largura do contêiner pai */
+  width: 100vw; /* 'vw' = viewport width (largura da janela) */
+  position: relative; /* Posição relativa para que o 'left' funcione */
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+    }
+
+/* Cards de produto */
+.product-card {
+    background: rgba(0, 0, 0, 0.45);
+    border-radius: 12px;
+    border: 2px solid #f3e7a1;
+    box-shadow: 0 4px 10px rgba(255, 215, 0, 0.1);
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+.product-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 15px rgba(255, 217, 0, 0.35);
+    border-color: #ffef99;
+}
+
+/* Imagens de produto */
+.product-image {
+    width: 100%;
+    height: 180px;
+    border-radius: 10px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+/* Nome e preço do produto */
+.product-name {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 5px 0;
+}
+
+.product-content {
+    text-align: center;
+}
+
+/* Link do produto */
+.product-link {
+   background-color:#ffd900; 
+    color:#121212; 
+    border:none;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    padding:15px 10px;
+    width: 100%;
+    border-radius:8px; 
+    cursor:pointer; 
+    font-weight:bold; 
+    transition: transform 0.3s;
+    margin-bottom: 5px;
+    box-sizing: border-box;
+    margin-top: auto;
+  margin-bottom: 10px;
+}
+.product-link:hover {
+    background-color: #fcfcfc;
+    color: #000000;
+    transform: scale(1.05);
+}
+
+
+
+/* Toast de copiado */
+
+
+/* Seletor de cores */
+.color-options {
+    display: flex;
+    gap: 8px;
+    margin: 10px 0;
+    justify-content: center;
+}
+.color-circle {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    border: 2px solid #ddd;
+    transition: transform 0.2s;
+}
+.color-circle:hover {
+    transform: scale(1.1);
+    border-color: #FFD700;
+}
+.color-circle.hot::after,
+.color-circle.new::after {
+    position: absolute;
+    top: -8px;
+    right: -10px;
+    font-size: 10px;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-weight: bold;
+    color: white;
+}
+.color-circle.hot::after {
+    content: "HOT";
+    background: #ff4d4d;
+}
+.color-circle.new::after {
+    content: "NEW";
+    background: #00c853;
+}
+
+/* Responsividade para celulares */
+@media (max-width: 50px) {
+    .container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1px;
+    }
+
+    .product-card {
+        padding: 1px;
+        aspect-ratio: 3 / 4;
+    }
+
+    .product-image {
+        aspect-ratio: 3 / 4;
+        border-radius: 8px;
+    }
+}
+
+/* Ajuste fino para telas muito pequenas */
+@media (max-width: 10px) {
+    .container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1px;
+    }
+
+    .product-card {
+        padding: 1px;
+    }
+}
